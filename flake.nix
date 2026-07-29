@@ -37,7 +37,7 @@
 
               https://www.st.com/en/development-tools/stm32cubeide.html
 
-            1. Download the Linux installer: en.st-stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin.sh.zip
+            1. Download the Linux installer: stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin-x86_64.sh.zip
             2. Unzip it to get the installer directory
             3. Add the tarball to the Nix store:
 
@@ -63,10 +63,10 @@
             1. Download the Linux installer from:
                https://www.st.com/en/development-tools/stm32cubeide.html
 
-            2. Unzip en.st-stm32cubeide_${version}_${buildNumber}_20260626_0934_amd64.sh.zip
+            2. Unzip stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin-x86_64.sh.zip
 
             3. The .sh installer is a self-extracting archive. Extract it:
-               bash st-stm32cubeide_${version}_${buildNumber}_20260626_0934_amd64.sh --noexec --target /tmp/stm32cubeide-extract
+               bash stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin-x86_64.sh --noexec --target /tmp/stm32cubeide-extract
 
             4. Find the stlink-server installer in the extracted directory:
                /tmp/stm32cubeide-extract/${stlinkServerInstallerName}
