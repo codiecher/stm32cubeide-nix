@@ -20,15 +20,15 @@
           config.allowUnfree = true;
         };
 
-        version = "2.1.0";
-        buildNumber = "27993";
-        tarballName = "st-stm32cubeide_${version}_${buildNumber}_20260219_1630_amd64.tar.gz";
+        version = "2.2.0";
+        buildNumber = "29186";
+        tarballName = "stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin.tar.gz";
 
         # The main IDE tarball - must be obtained from STMicroelectronics
         # Download from: https://www.st.com/en/development-tools/stm32cubeide.html
         mainTarball = pkgs.requireFile {
           name = tarballName;
-          sha256 = "6e84809be9a4930a13a06a6d13de0ab544d0a56a7c582ed84a9779e31767afa2";
+          sha256 = "43a118d18495c90932601d5005387dd7f108fe1ad1447b20663fc879ccc688b7";
           message = ''
             STM32CubeIDE ${version} tarball not found in the Nix store.
 
@@ -37,7 +37,7 @@
 
               https://www.st.com/en/development-tools/stm32cubeide.html
 
-            1. Download the Linux installer: en.st-stm32cubeide_${version}_${buildNumber}_20260219_1630_amd64.sh.zip
+            1. Download the Linux installer: en.st-stm32cubeide_${version}_${buildNumber}_20260626_0934-Lin.sh.zip
             2. Unzip it to get the installer directory
             3. Add the tarball to the Nix store:
 
@@ -63,10 +63,10 @@
             1. Download the Linux installer from:
                https://www.st.com/en/development-tools/stm32cubeide.html
 
-            2. Unzip en.st-stm32cubeide_${version}_${buildNumber}_20260219_1630_amd64.sh.zip
+            2. Unzip en.st-stm32cubeide_${version}_${buildNumber}_20260626_0934_amd64.sh.zip
 
             3. The .sh installer is a self-extracting archive. Extract it:
-               bash st-stm32cubeide_${version}_${buildNumber}_20260219_1630_amd64.sh --noexec --target /tmp/stm32cubeide-extract
+               bash st-stm32cubeide_${version}_${buildNumber}_20260626_0934_amd64.sh --noexec --target /tmp/stm32cubeide-extract
 
             4. Find the stlink-server installer in the extracted directory:
                /tmp/stm32cubeide-extract/${stlinkServerInstallerName}
@@ -279,6 +279,9 @@
             "libavcodec.so.60"
             # xerces versioned lib (we have 3.3, it wants 3.2)
             "libxerces-c-3.2.so"
+            # JNA bundles native libs for many OS/arch combos; this one is
+            # DragonFlyBSD's libc and is never loaded on Linux
+            "libc.so.8"
           ];
 
           # Set rpath for bundled libraries to find each other
