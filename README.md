@@ -1,6 +1,6 @@
 # STM32CubeIDE for NixOS
 
-This Nix flake provides STM32CubeIDE 2.0.0 packaged for NixOS.
+This Nix flake provides STM32CubeIDE 2.2.0 packaged for NixOS.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ the installer yourself and add the tarball to the Nix store before building.
 ### Step 1: Download the installer
 
 1. Go to https://www.st.com/en/development-tools/stm32cubeide.html
-2. Download the Linux installer: `en.st-stm32cubeide_2.1.0_27993_20260219_1630_amd64.sh.zip`
+2. Download the Linux installer: `stm32cubeide_2.2.0-Lin-x86_64.sh.zip`
 3. Unzip it to get the installer `.sh` file
 
 ### Step 2: Extract the required files
@@ -18,11 +18,11 @@ the installer yourself and add the tarball to the Nix store before building.
 The downloaded `.sh` file is a self-extracting archive. Extract it to get the required files:
 
 ```bash
-bash st-stm32cubeide_2.1.0_27993_20260219_1630_amd64.sh --noexec --target /tmp/stm32cubeide-extract
+bash stm32cubeide_2.2.0-Lin-x86_64.sh.zip --noexec --target /tmp/stm32cubeide-extract
 ```
 
 This will extract the contents to `/tmp/stm32cubeide-extract/`, which includes:
-- `st-stm32cubeide_2.1.0_27993_20260219_1630_amd64.tar.gz` - The main IDE tarball
+- `stm32cubeide_2.2.0_29186_20260626_0934-Lin.tar.gz` - The main IDE tarball
 - `st-stlink-server.2.1.1-1-linux-amd64.install.sh` - The ST-Link Server installer
 
 ### Step 3: Add the files to the Nix store
@@ -31,7 +31,7 @@ Add both required files to the Nix store:
 
 ```bash
 # Add the main IDE tarball
-nix-store --add-fixed sha256 /tmp/stm32cubeide-extract/st-stm32cubeide_2.1.0_27993_20260219_1630_amd64.tar.gz
+nix-store --add-fixed sha256 /tmp/stm32cubeide-extract/stm32cubeide_2.2.0_29186_20260626_0934-Lin.tar.gz
 
 # Add the ST-Link Server installer
 nix-store --add-fixed sha256 /tmp/stm32cubeide-extract/st-stlink-server.2.1.1-1-linux-amd64.install.sh
@@ -39,7 +39,7 @@ nix-store --add-fixed sha256 /tmp/stm32cubeide-extract/st-stlink-server.2.1.1-1-
 
 Each command will output a store path like:
 ```
-/nix/store/...-st-stm32cubeide_2.1.0_27993_20260219_1630_amd64.tar.gz
+/nix/store/...-stm32cubeide_2.2.0_29186_20260626_0934-Lin.tar.gz
 /nix/store/...-st-stlink-server.2.1.1-1-linux-amd64.install.sh
 ```
 
