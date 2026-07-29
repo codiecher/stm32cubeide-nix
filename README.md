@@ -71,7 +71,7 @@ Add this flake as an input to your system flake:
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stm32cubeide.url = "github:ldryt/stm32cubeide-nix";
+    stm32cubeide.url = "github:codiecher/stm32cubeide-nix";
   };
 
   outputs = { self, nixpkgs, stm32cubeide, ... }: {
@@ -101,7 +101,7 @@ Add this flake as an input to your system flake:
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stm32cubeide.url = "github:ldryt/stm32cubeide-nix";
+    stm32cubeide.url = "github:codiecher/stm32cubeide-nix";
   };
 
   outputs = { self, nixpkgs, stm32cubeide, ... }: {
@@ -179,7 +179,7 @@ Make sure you've added both required files to the Nix store:
 
 ```bash
 # Add the main IDE tarball
-nix-store --add-fixed sha256 /path/to/st-stm32cubeide_2.0.0_26820_20251114_1348_amd64.tar.gz
+nix-store --add-fixed sha256 /path/to/stm32cubeide_2.2.0_29186_20260626_0934-Lin.tar.gz
 
 # Add the ST-Link Server installer
 nix-store --add-fixed sha256 /path/to/st-stlink-server.2.1.1-1-linux-amd64.install.sh
